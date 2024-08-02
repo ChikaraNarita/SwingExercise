@@ -172,7 +172,6 @@ public class Exec3 extends JFrame implements ActionListener {
             }
         }
         spaces.get(yCount)[xCount].setText("●");
-        
-        
+       
     }
 }
