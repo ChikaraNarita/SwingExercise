@@ -30,8 +30,8 @@ public class Exec3 extends JFrame implements ActionListener {
     JButton lowerLeft;
     JButton lower;
     JButton lowerRight;
-    int xCount;
-    int yCount;
+    int xCount = 2;
+    int yCount = 2;
     List<JLabel[]> spaces = new ArrayList<JLabel[]>(); 
     
     public Exec3() {
@@ -59,46 +59,31 @@ public class Exec3 extends JFrame implements ActionListener {
             }
         }   
         
-
+        List<JButton> button = new ArrayList<JButton>();
         
-        upperLeft = new JButton("↖");
-        upper = new JButton("↑");
-        upperRight = new JButton("↗");
-        left = new JButton("←");
-        center = new JButton("・");
-        right = new JButton("→");
-        lowerLeft = new JButton("↙");
-        lower = new JButton("↓");
-        lowerRight = new JButton("↘");
+        button.add(upperLeft = new JButton("↖"));
+        button.add(upper = new JButton("↑"));
+        button.add(upperRight = new JButton("↗"));
+        button.add(left = new JButton("←"));
+        button.add(center = new JButton("・"));
+        button.add(right = new JButton("→"));
+        button.add(lowerLeft = new JButton("↙"));
+        button.add(lower = new JButton("↓"));
+        button.add(lowerRight = new JButton("↘"));
         
         JPanel buttonPane = new JPanel();
         buttonPane.setLayout(new GridLayout(3,3));
-        buttonPane.add(upperLeft);
-        buttonPane.add(upper);
-        buttonPane.add(upperRight);
-        buttonPane.add(left);
-        buttonPane.add(center);
-        buttonPane.add(right);
-        buttonPane.add(lowerLeft);
-        buttonPane.add(lower);
-        buttonPane.add(lowerRight);
-        
+        for(JButton b : button) {
+            buttonPane.add(b);
+        }
+ 
         contentPane.setLayout(new GridLayout(2,1));
         contentPane.add(spacePane);
         contentPane.add(buttonPane);
         
-        upperLeft.addActionListener(this);
-        upper.addActionListener(this);
-        upperRight.addActionListener(this);
-        left.addActionListener(this);
-        center.addActionListener(this);
-        right.addActionListener(this);
-        lowerLeft.addActionListener(this);
-        lower.addActionListener(this);
-        lowerRight.addActionListener(this);
-        
-        xCount = 2;
-        yCount = 2;
+        for(JButton b : button) {
+            b.addActionListener(this);
+        }
     }
     
     @Override
