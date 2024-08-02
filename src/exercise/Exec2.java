@@ -23,7 +23,7 @@ public class Exec2 extends JFrame implements ActionListener {
     JButton moveLeft;
     JButton moveRight;
     JLabel[] space;
-    int count;
+    int count = 2;
 
 
     public Exec2() {
@@ -64,77 +64,24 @@ public class Exec2 extends JFrame implements ActionListener {
         moveLeft.addActionListener(this);
         moveRight.addActionListener(this);
 
-        count = 0;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == moveRight) {
+            space[count].setText(" ");
             count++;
-            if(count == 3) {
-                count = -2;
+            if(count == 5) {
+                count = 0;
             }
-            switch(count) {
-                case -2 :
-                    space[4].setText(" ");
-                    space[0].setText("・");
-                    space[1].setText(" ");
-                    break;
-                case -1 :
-                    space[0].setText(" ");
-                    space[1].setText("・");
-                    space[2].setText(" ");
-                    break;
-                case 0:
-                    space[1].setText(" ");
-                    space[2].setText("・");
-                    space[3].setText(" ");
-                    break;
-                case 1 :
-                    space[2].setText(" ");
-                    space[3].setText("・");
-                    space[4].setText(" ");
-                    break;
-                case 2 :
-                    space[3].setText(" ");
-                    space[4].setText("・");
-                    space[0].setText(" ");
-                    break;
-
-            }
+            space[count].setText("・");
         }else {
+            space[count].setText(" ");
             count--;
-            if(count == -3) {
-                count = 2;
+            if(count == -1) {
+                count = 4;
             }
-            switch(count) {
-                case -2 :
-                    space[4].setText(" ");
-                    space[0].setText("・");
-                    space[1].setText(" ");
-                    break;
-                case -1 :
-                    space[0].setText(" ");
-                    space[1].setText("・");
-                    space[2].setText(" ");
-                    break;
-                case 0:
-                    space[1].setText(" ");
-                    space[2].setText("・");
-                    space[3].setText(" ");
-                    break;
-                case 1 :
-                    space[2].setText(" ");
-                    space[3].setText("・");
-                    space[4].setText(" ");
-                    break;
-                case 2 :
-                    space[3].setText(" ");
-                    space[4].setText("・");
-                    space[0].setText(" ");
-                    break;
-            }
-
+            space[count].setText("・");
         }
     }
 }
